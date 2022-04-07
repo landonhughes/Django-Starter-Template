@@ -2,9 +2,9 @@
 
 ## Basic Structure
 
-1. Install the virtualenv pip package globally (if it hasn't already been installed). Type `pip3 install virtualenv` into the terminal.
+1. Install the virtualenv pip package globally (if it hasn't already been installed). Type `pip3 install virtualenv` into the terminal then hit enter.
 2. Create a new virtual environment with `virtualenv <my-venv-name>`.
-3. Activate the virtual environment with `source <my-venv-name>/bin/activate`. This is essentially a little sandbox for your django project. You can have multiple django projects without any conflicts by utilizing virtual environments.
+3. Activate the virtual environment with `source <my-venv-name>/bin/activate`. This is essentially a little sandbox for your django project. You can have multiple django projects on your computer without any conflicts by utilizing virtual environments.
 4. You should see the name of the virtual environment in parentheses on the left of your terminal. This signals that it was activated correctly.
    ![Virtual Environment](images/virtualenv.png "Virtual Environment")
 5. Now create a new django project with `django-admin startproject <my-project-name>`.
@@ -32,7 +32,7 @@ In your terminal:
 ## Environment Setup
 
 1. Create a .gitignore file and use the template from [https://www.toptal.com/developers/gitignore/api/django](https://www.toptal.com/developers/gitignore/api/django) .
-2. Create a new .env file. Copy the template `.env.template` and paste it into your new .env file.
+2. Create a new .env file. Copy what is in `.env.template` and paste it into your new .env file.
 3. Fill in the placeholder values with information from the previous steps.
 4. Leave `ENGINE` alone. Make sure HOST is `localhost` (for development purposes). Change the PORT number to 5432. This is the default port for postgres.
 5. For the secret key, copy the value in `settings.py` and put that value into the .env file.
@@ -76,3 +76,5 @@ DATABASES = {
 6. Also, if you manage to leak your `SECRET_KEY` in `settings.py`, you will get an email from GitGuardian saying your key was exposed on Github. It's best to put this in a .env file from the start to prevent any security issues.
 
 See: ![Exposed](images/exposed.png "Exposed Secret Key")
+
+I hope someone on the internet finds this tutorial/template useful!

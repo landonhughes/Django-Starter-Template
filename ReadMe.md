@@ -6,7 +6,7 @@
 2. Create a new virtual environment with `virtualenv <my-venv-name>`.
 3. Activate the virtual environment with `source <my-venv-name>/bin/activate`. This is essentially a little sandbox for your django project. You can have multiple django projects without any conflicts by utilizing virtual environments.
 4. You should see the name of the virtual environment in parentheses on the left of your terminal. This signals that it was activated correctly.
-   ![images/virtualenv.png](VirtualEnv).
+   ![Virtual Environment](images/virtualenv.png "Virtual Environment")
 5. Now create a new django project with `django-admin startproject <my-project-name>`.
 6. Now it's time to install some packages!
 
@@ -75,4 +75,4 @@ DATABASES = {
 5. If all goes well, you should see no errors! Whoop whoop
 6. Also, if you manage to leak your `SECRET_KEY` in `settings.py`, you will get an email from GitGuardian saying your key was exposed on Github. It's best to put this in a .env file from the start to prevent any security issues.
 
-See: ![images/exposed.png](Exposed)
+See: ![Exposed](images/exposed.png "Exposed Secret Key")

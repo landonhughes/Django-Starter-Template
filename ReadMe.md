@@ -71,7 +71,7 @@ DATABASES = {
 ```
 
 3. We are nearly there!
-4. Run `python manage.py migrate`. You can now delete the sqlite database that came with the django installation since we are now using postgres.
+4. Change the current directory to your django project then Run `python manage.py migrate`. You can now delete the sqlite database that came with the django installation since we are now using postgres.
 5. If all goes well, you should see no errors! Whoop whoop
 6. Also, if you manage to leak your `SECRET_KEY` in `settings.py`, you will get an email from GitGuardian saying your key was exposed on Github. It's best to put this in a .env file from the start to prevent any security issues.
 

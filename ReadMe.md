@@ -78,3 +78,4 @@ DATABASES = {
 See: ![Exposed](images/exposed.png "Exposed Secret Key")
 
 I hope someone on the internet finds this tutorial/template useful!
+If you are cloning this repo, don't forget to `pip3 install -r requirements.txt` 👍

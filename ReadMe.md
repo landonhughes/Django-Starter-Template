@@ -77,5 +77,73 @@ DATABASES = {
 
 See: ![Exposed](images/exposed.png "Exposed Secret Key")
 
+## Django Browser reload
+
+Django Browser reload is a package I always use. If you make changes in any of your static files, this package will auto reload your browser for you reflecting those changes.
+To install:
+
+1. We did this earlier but run `python3 -m pip install django-browser-reload` if you forgot. This installs the package.
+2. In `settings.py`, add
+
+```python3 INSTALLED_APPS = [
+    ...,
+    "django_browser_reload",
+    ...,
+]
+```
+
+3. In `urls.py` in the root of your project, add:
+
+```python3
+urlpatterns = [
+    ...,
+    path("__reload__/", include("django_browser_reload.urls")),
+]
+```
+
+4. Finally, go to `settings.py` and add:
+
+```python3
+MIDDLEWARE = [
+    # ...
+    "django_browser_reload.middleware.BrowserReloadMiddleware",
+    # ...
+]
+```
+
+5. You are all set up with auto-reloading in Django! If you have more questions or want to see the original developer repository for django-browser-reload,
+   you can do so [here](https://github.com/adamchainz/django-browser-reload).
+
+## Static Files and Media Uploads Configuration
+
+1. In the root `urls.py` file, add:
+
+```python3
+...
+from django.conf import settings
+from django.conf.urls.static import static
+...
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+```
+
+2. In `settings.py`, add:
+
+```python3
+# You can think of this like the "where", as in where should our links look if we add a logo to the home page.
+STATIC_URL = 'static/'
+# You can also think of this like the "where, as in what url should user uploaded images be pointed to. So, say a user uploaded an image called egg.png, the location of that image would look something like www.myfancywebsite.com/images/egg.png.
+MEDIA_URL = "/images/"
+# Inside our Django project, we need JS, CSS, and static content to make our site look fancy. You can think of the line below to tell Django "Hey, look here for these files".
+STATICFILES_DIRS = [ BASE_DIR / "static" ]
+# The line below tells Django, "Hey, store any user uploaded content to <root-folder-project-name>/static/images"
+MEDIA_ROOT = BASE_DIR / "static/images"
+# STATIC_ROOT is the exact same thing except, this is where our static files will go when we use `python manage.py collectstatic`.
+STATIC_ROOT = BASE_DIR / "staticfiles"
+```
+
+3. We're done!
+
 I hope someone on the internet finds this tutorial/template useful!
 If you are cloning this repo, don't forget to `pip3 install -r requirements.txt` 👍

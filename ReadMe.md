@@ -85,18 +85,19 @@ To install:
 1. We did this earlier but run `python3 -m pip install django-browser-reload` if you forgot. This installs the package.
 2. In `settings.py`, add
 
-```python3 INSTALLED_APPS = [
+```python3
+INSTALLED_APPS = [
     ...,
     "django_browser_reload",
     ...,
 ]
 ```
 
-3. In `urls.py` in the root of your project, add:
+3. In `urls.py` in the root of your project, add the following to urlpatterns:
 
 ```python3
 urlpatterns = [
-    ...,
+    # ...
     path("__reload__/", include("django_browser_reload.urls")),
 ]
 ```

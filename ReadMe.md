@@ -14,7 +14,7 @@
 
 In your terminal:
 
-1. `pip install psycopg2-binary pillow requests python-dotenv`.
+1. `pip install psycopg2-binary pillow requests python-dotenv whitenoise`.
 2. `python3 -m pip install django-browser-reload`.
 3. Packages are installed! Onto database setup.
 
